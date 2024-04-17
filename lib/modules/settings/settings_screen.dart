@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_mqtt_riverpod/modules/helpers/screen_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/interfaces/IMQTTController.dart';
@@ -43,9 +44,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   Widget _buildAppBar(BuildContext context) {
     return AppBar(
-      title: const Text('Settings'),
+      title: const Text('Ajustes'),
       backgroundColor: Colors.greenAccent,
-    );
+      
+      );    
   }
 
   Widget _buildColumn(IMQTTController manager) {
@@ -64,7 +66,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
-          _buildTextFieldWith(_hostTextController, 'Enter broker address',
+          _buildTextFieldWith(_hostTextController, 'Ingresa dirección de broker',
               currentAppState.getAppConnectionState),
           const SizedBox(height: 10),
           _buildConnecteButtonFrom(currentAppState.getAppConnectionState)
@@ -102,7 +104,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             onPressed: state == MQTTAppConnectionState.disconnected
                 ? _configureAndConnect
                 : null,
-            child: const Text('Connect'), //
+            child: const Text('Conectar'), //
           ),
         ),
         const SizedBox(width: 10),
@@ -112,7 +114,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             onPressed: state != MQTTAppConnectionState.disconnected
                 ? _disconnect
                 : null,
-            child: const Text('Disconnect'), //
+            child: const Text('Desconectar'), //
           ),
         ),
       ],
@@ -121,7 +123,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   void _configureAndConnect() {
     // TODO: Use UUID
-    String osPrefix = 'Flutter_iOS';
+    String osPrefix = 'Flutter_Android';
     if (Platform.isAndroid) {
       osPrefix = 'Flutter_Android';
     }

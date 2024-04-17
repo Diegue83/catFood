@@ -99,7 +99,7 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Expanded(
-          child: _buildTextFieldWith(_messageTextController, 'Enter a message',
+          child: _buildTextFieldWith(_messageTextController, 'Ingresa un mensaje',
               currentAppState.getAppConnectionState),
         ),
         _buildSendButtonFrom(currentAppState.getAppConnectionState)
@@ -142,7 +142,7 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
         _publishMessage(_messageTextController.text);
       }
           : null,
-      child: const Text('Send'),
+      child: const Text('Enviar'),
     );
   }
 
@@ -153,7 +153,7 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
         Expanded(
           child: _buildTextFieldWith(
               _topicTextController,
-              'Enter a topic to subscribe or listen',
+              'Ingresa un topico',
               currentAppState.getAppConnectionState),
         ),
         _buildSubscribeButtonFrom(currentAppState.getAppConnectionState)
@@ -177,8 +177,8 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
         }
             : null, //,
         child: state == MQTTAppConnectionState.connectedSubscribed
-            ? const Text('Unsubscribe')
-            : const Text('Subscribe'));
+            ? const Text('Desuscribir')
+            : const Text('Suscribir'));
   }
 
   Widget _buildScrollableTextWith(String text) {
@@ -208,7 +208,7 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
       if (enteredText != null && enteredText.isNotEmpty) {
         _manager.subScribeTo(_topicTextController.text);
       } else {
-        _showDialog("Please enter a topic.");
+        _showDialog("Ingresa un topico.");
       }
     }
   }
@@ -233,7 +233,7 @@ class _MessageScreenState extends ConsumerState<MessageScreen> {
           content: Text(message),
           actions: <Widget>[
             TextButton(
-              child: const Text("Close"),
+              child: const Text("Cerrar"),
               onPressed: () {
                 Navigator.of(context).pop();
               },

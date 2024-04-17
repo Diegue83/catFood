@@ -4,14 +4,14 @@ import '../core/models/MQTTAppState.dart';
 String prepareStateMessageFrom(MQTTAppConnectionState state) {
   switch (state) {
     case MQTTAppConnectionState.connected:
-      return 'Connected';
+      return 'Conectado';
     case MQTTAppConnectionState.connecting:
-      return 'Connecting';
+      return 'Conectando';
     case MQTTAppConnectionState.disconnected:
-      return 'Disconnected';
+      return 'Desconectado';
     case MQTTAppConnectionState.connectedSubscribed:
-      return 'Subscribed';
+      return 'Suscrito';
     case MQTTAppConnectionState.connectedUnSubscribed:
-      return 'Unsubscribed';
+      return 'Desuscrito';
   }
 }
